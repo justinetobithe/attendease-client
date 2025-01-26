@@ -17,7 +17,7 @@ const AppHeader: FC = async () => {
         <AppNavBurger />
         <Link href='/home' className='flex items-center space-x-2'>
           <Image src={Logo} width={48} height={48} alt='Logo' />
-          <span className='text-[1.25rem] font-bold'>CT Express</span>
+          <span className='text-[1.25rem] font-bold'>Attend Ease</span>
         </Link>
       </li>
       <li className='ml-auto inline-block'>

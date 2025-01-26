@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react';
-import AppVehiclesTable from '@/components/AppVehiclesTable';
+import AppVehiclesTable from '@/components/AppStudentsTable';
 import { Button } from '@/components/ui/button';
 import { Plus } from "lucide-react";
 import AppVehicleForm from '@/components/AppVehicleForm';

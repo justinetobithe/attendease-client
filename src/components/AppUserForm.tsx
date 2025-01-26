@@ -47,9 +47,9 @@ interface AppUserFormProps {
 
 const roleOptions = [
     { value: "admin", label: "admin" },
-    { value: "driver", label: "driver" },
-    { value: "operator", label: "operator" },
-    { value: "passenger", label: "passenger" },
+    { value: "guard", label: "guard" },
+    { value: "parent", label: "parent" },
+    { value: "student", label: "student" },
 ]
 
 const AppUserForm: FC<AppUserFormProps> = ({ data, isOpen, onClose, queryClient }) => {

@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import AppVehiclesTable from '@/components/AppVehiclesTable';
+import AppVehiclesTable from '@/components/AppStudentsTable';
 import { useQueryClient } from '@tanstack/react-query';
 
 

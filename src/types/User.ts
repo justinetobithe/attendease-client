@@ -1,5 +1,3 @@
-import { Vehicle } from "./Vehicle";
-
 // MAIN
 export default interface User {
   id: string;
@@ -15,7 +13,6 @@ export default interface User {
   token?: string;
   email_verified?: Date | null;
   status?: number;
-  vehicle: Vehicle | null;
 }
 
 

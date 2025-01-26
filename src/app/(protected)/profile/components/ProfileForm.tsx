@@ -183,7 +183,7 @@ const ProfileForm: FC<{ user: User }> = ({ user }) => {
                     className='object-cover'
                   />
                   <AvatarFallback className='text-3xl font-medium'>
-                    {user?.first_name?.charAt(0).toUpperCase()}
+                    {user?.first_name}
                   </AvatarFallback>
                 </Avatar>
                 <div>

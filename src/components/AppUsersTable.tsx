@@ -80,68 +80,14 @@ export default function AppUsersTable() {
   const [rowSelection, setRowSelection] = useState({});
   const columns: ColumnDef<User>[] = [
     {
-      accessorKey: 'image',
-      header: 'Image',
-      cell: ({ row }) => {
-        const item = row.original;
-        const image = item.image;
-
-        let imageUrl = image;
-        if (image) {
-          const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-          if (apiUrl) {
-            imageUrl = `${apiUrl}/storage/app/public/image/${image}`;
-          }
-        }
-
-        console.log("imageUrl", imageUrl);
-
-        return imageUrl ? (
-          <>
-            <Image
-              src={imageUrl}
-              alt="User"
-              width={80}
-              height={80}
-              className="h-20 w-20 cursor-pointer object-cover"
-              onClick={() => {
-                setSelectedImage(imageUrl ?? null);
-                setIsImageDialogOpen(true);
-              }}
-            />
-
-            <Dialog open={isImageDialogOpen} onOpenChange={setIsImageDialogOpen}>
-              <DialogContent className="absolute flex justify-center items-center">
-                <button
-                  onClick={() => setIsImageDialogOpen(false)}
-                  className="absolute text-white p-2 rounded-full"
-                />
-                {selectedImage && (
-                  <Image
-                    src={selectedImage}
-                    alt="Selected Image"
-                    width={500}
-                    height={500}
-                    className="max-w-full max-h-full object-contain"
-                  />
-                )}
-              </DialogContent>
-            </Dialog>
-          </>
-        ) : (
-          <div className="h-20 w-20 bg-gray-300" />
-        );
-      },
-    },
-    {
-      accessorKey: 'first_name',
+      accessorKey: 'name',
       header: ({ column }) => (
         <Button
           variant='ghost'
           className='pl-0 text-left hover:!bg-transparent'
           onClick={() => column.toggleSorting()}
         >
-          Users' Name
+          Name
           <ArrowUpDown className='ml-2 h-4 w-4' />
         </Button>
       ),

@@ -18,8 +18,10 @@ import {
   HomeIcon,
   FileLock,
   MapPinIcon,
-  BookUser,
-  Computer
+  Database,
+  Computer,
+  GraduationCap,
+  UsersIcon
 } from 'lucide-react';
 
 interface Route {
@@ -39,22 +41,22 @@ const routes: Route[] = [
     isSidebarVisible: true,
     child_routes: [],
   },
-  {
-    route: '/bookings',
-    title: 'Bookings',
-    icon: <BookUser />,
-    roles: ['admin', 'operator'],
-    isSidebarVisible: true,
-    child_routes: [],
-  },
-  {
-    route: '/trip',
-    title: 'Trip',
-    icon: <MapPinIcon />,
-    roles: ['admin', 'operator'],
-    isSidebarVisible: true,
-    child_routes: [],
-  },
+  // {
+  //   route: '/bookings',
+  //   title: 'Bookings',
+  //   icon: <BookUser />,
+  //   roles: ['admin', 'operator'],
+  //   isSidebarVisible: true,
+  //   child_routes: [],
+  // },
+  // {
+  //   route: '/trip',
+  //   title: 'Trip',
+  //   icon: <MapPinIcon />,
+  //   roles: ['admin', 'operator'],
+  //   isSidebarVisible: true,
+  //   child_routes: [],
+  // },
   // {
   //   route: '/inbox',
   //   title: 'Inbox',
@@ -129,18 +131,18 @@ const routes: Route[] = [
   // },
 
   {
-    route: '/terminal',
-    title: 'Terminal',
-    icon: <HomeIcon />,
+    route: '/strands',
+    title: 'Strand',
+    icon: <GraduationCap />,
     roles: ['admin'],
     isSidebarVisible: true,
     child_routes: [],
   },
 
   {
-    route: '/vehicle',
-    title: 'Vehicle',
-    icon: <Bus />,
+    route: '/students',
+    title: 'Student',
+    icon: <UsersIcon />,
     roles: ['admin'],
     isSidebarVisible: true,
     child_routes: [],
@@ -162,10 +164,10 @@ const routes: Route[] = [
   //   child_routes: [],
   // },
   {
-    route: '/payments',
-    title: 'Payments',
-    icon: <Wallet />,
-    roles: ['admin', 'operator'],
+    route: '/records',
+    title: 'Records',
+    icon: <Database />,
+    roles: ['admin', 'parent'],
     isSidebarVisible: true,
     child_routes: [],
   },
@@ -177,14 +179,14 @@ const routes: Route[] = [
   //   isSidebarVisible: true,
   //   child_routes: [],
   // },
-  {
-    route: '/walk-ins',
-    title: 'Walk ins',
-    icon: <Computer />,
-    roles: ['admin', 'operator'],
-    isSidebarVisible: true,
-    child_routes: [],
-  },
+  // {
+  //   route: '/walk-ins',
+  //   title: 'Walk ins',
+  //   icon: <Computer />,
+  //   roles: ['admin', 'operator'],
+  //   isSidebarVisible: true,
+  //   child_routes: [],
+  // },
   {
     route: '/users-list',
     title: 'Users List',

@@ -6,8 +6,8 @@ import AppTanstackProvider from '@/components/AppTanstackProvider';
 import poppins from './assets/fonts/poppins';
 
 export const metadata: Metadata = {
-  title: 'CT Express',
-  description: 'CT Express description...',
+  title: 'Attend Ease',
+  description: 'Attend Ease is a streamlined platform designed to simplify attendance management, providing features such as real-time attendance tracking, reporting, and data integration. Ideal for educational institutions, organizations, and businesses looking to enhance their attendance systems.',
 };
 
 export default async function RootLayout({
