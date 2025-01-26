@@ -210,7 +210,9 @@ const ProfileForm: FC<{ user: User }> = ({ user }) => {
                             {...field}
                             className='hidden'
                             accept='image/*'
-                            ref={(ref) => (imageRef.current = ref)}
+                            ref={(ref) => {
+                              imageRef.current = ref;
+                            }}
                             onChange={(e) => {
                               if (e.target.files) {
                                 onChange(e.target.files && e.target.files[0]);
