@@ -1,10 +1,8 @@
 import AuthOptions from '@/lib/AuthOptions';
 import { getServerSession } from 'next-auth';
-import React, { FC } from 'react';
+import React from 'react';
 
-const Layout: FC<{
-  admin: React.ReactNode;
-}> = async ({ admin }) => {
+const Layout = async ({ admin }: { admin: React.ReactNode }): Promise<React.ReactElement> => {
   const session = await getServerSession(AuthOptions);
 
   const renderContent = () => {
@@ -12,7 +10,7 @@ const Layout: FC<{
       case 'admin':
         return admin;
       default:
-        return null;
+        return <p>Unauthorized</p>;
     }
   };
 

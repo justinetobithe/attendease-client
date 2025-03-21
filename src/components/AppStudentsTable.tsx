@@ -8,28 +8,23 @@ import {
     useReactTable,
 } from '@tanstack/react-table';
 import { Button } from '@/components/ui/button';
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { Skeleton } from '@/components/ui/skeleton';
 import AppTable from '@/components/AppTable';
-import { ArrowUpDown, Pencil, Trash } from 'lucide-react';
+import { ArrowUpDown } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { Student } from '@/types/Student';
 import { useStudents } from '@/lib/StudentAPI';
-import { useQueryClient } from '@tanstack/react-query';
+import AppStudentRecordsDialog from './AppStudentRecordsDialog';
 
 export default function AppStudentsTable() {
-    const queryClient = useQueryClient();
     const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({
         pageIndex: 0,
         pageSize: 10,
     });
-    const [searchKeyword, setSearchKeyword] = React.useState('');
+
+    const [searchKeyword, setSearchKeyword] = useState('');
     const [sorting, setSorting] = useState<SortingState>([]);
+    const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
 
     const { data, isLoading } = useStudents(
         pageIndex + 1,
@@ -54,7 +49,25 @@ export default function AppStudentsTable() {
             ),
             cell: ({ row }) => {
                 const { first_name, last_name } = row.original.user || {};
-                return `${first_name} ${last_name}`;
+
+                return (
+                    <Dialog>
+                        <DialogTrigger asChild>
+                            <Button
+                                variant="link"
+                                onClick={() => setSelectedStudent(row.original)}
+                            >
+                                {`${first_name} ${last_name}`}
+                            </Button>
+                        </DialogTrigger>
+                        <DialogContent className="w-full max-w-[70vw] h-[70vh]">
+                            {selectedStudent && (
+                                <AppStudentRecordsDialog student={selectedStudent} />
+                            )}
+                        </DialogContent>
+                    </Dialog>
+
+                );
             },
             enableSorting: true,
         },
@@ -95,7 +108,10 @@ export default function AppStudentsTable() {
     const table = useReactTable({
         data: data?.data ?? Array(10).fill({}),
         columns: isLoading
-            ? columns.map((column) => ({ ...column, cell: () => <Skeleton className='h-12 w-full' /> }))
+            ? columns.map((column) => ({
+                ...column,
+                cell: () => <Skeleton className='h-12 w-full' />,
+            }))
             : columns,
         onSortingChange: setSorting,
         getCoreRowModel: getCoreRowModel(),

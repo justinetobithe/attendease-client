@@ -29,6 +29,12 @@ export const getStudents = async (
     };
 };
 
+export const showStudent = async (id: number): Promise<Response> => {
+    const response = await api.get(`/api/student/${id}`);
+    return response.data;
+};
+
+
 export const useStudents = (
     page: number = 1,
     pageSize: number = 10,
@@ -43,3 +49,18 @@ export const useStudents = (
         },
     });
 
+export const useShowStudent = () => {
+    return useMutation({
+        mutationFn: async (id: number) => {
+            return await showStudent(id);
+        },
+        onSuccess: (response) => {
+            if (response && response.status === "success") {
+                toast({
+                    variant: 'success',
+                    description: response.message,
+                });
+            }
+        },
+    });
+};

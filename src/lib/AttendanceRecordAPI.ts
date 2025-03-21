@@ -29,6 +29,11 @@ export const getAttendanceRecords = async (
     };
 };
 
+export const fetchAttendanceByStudentNumber = async (studentNumber: number): Promise<Response> => {
+    const response = await api.get(`/api/attendance-record/student/${studentNumber}`);
+    return response.data.data;
+};
+
 export const useAttendanceRecords = (
     page: number = 1,
     pageSize: number = 10,
@@ -41,4 +46,20 @@ export const useAttendanceRecords = (
         queryFn: async (): Promise<{ data: AttendanceRecord[]; last_page: number }> => {
             return await getAttendanceRecords(page, pageSize, globalFilter, sortColumn, sortDesc);
         },
-    }); 
+    });
+
+export const useFetchAttendanceByStudentNumber = () => {
+    return useMutation({
+        mutationFn: async (studentNumber: number) => {
+            return await fetchAttendanceByStudentNumber(studentNumber);
+        },
+        onSuccess: (response) => {
+            if (response && response.status === "success") {
+                toast({
+                    variant: 'success',
+                    description: response.message,
+                });
+            }
+        },
+    });
+};
