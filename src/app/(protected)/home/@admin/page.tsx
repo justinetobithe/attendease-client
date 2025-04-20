@@ -54,14 +54,14 @@ const Page = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <Card className="rounded-xl shadow-md hover:shadow-lg transition-all">
             <CardContent className="p-8 text-center">
-              <h4 className="text-2xl font-semibold">Number of Students</h4>
+              <h4 className="text-2xl font-semibold">Records of Students</h4>
               <p className="text-5xl font-bold text-primary mt-4">{studentsCount}</p>
             </CardContent>
           </Card>
 
           <Card className="rounded-xl shadow-md hover:shadow-lg transition-all">
             <CardContent className="p-8 text-center">
-              <h4 className="text-2xl font-semibold">Number of Strands</h4>
+              <h4 className="text-2xl font-semibold">Records of Strands</h4>
               <p className="text-5xl font-bold text-green-500 mt-4">{strandsCount}</p>
             </CardContent>
           </Card>

@@ -35,12 +35,12 @@ interface Route {
 const routes: Route[] = [
   {
     route: '/home',
-    title: 'Home',
+    title: 'Dashboard',
     icon: <Home />,
-    roles: ['admin', 'operator'],
+    roles: ['admin'],
     isSidebarVisible: true,
     child_routes: [],
-  }, 
+  },
   {
     route: '/strands',
     title: 'Strand',
@@ -57,7 +57,7 @@ const routes: Route[] = [
     roles: ['admin'],
     isSidebarVisible: true,
     child_routes: [],
-  }, 
+  },
   {
     route: '/records',
     title: 'Records',
@@ -65,7 +65,7 @@ const routes: Route[] = [
     roles: ['admin', 'parent'],
     isSidebarVisible: true,
     child_routes: [],
-  }, 
+  },
   {
     route: '/users-list',
     title: 'Users List',
@@ -74,31 +74,14 @@ const routes: Route[] = [
     isSidebarVisible: true,
     child_routes: [],
   },
-  {
-    route: '/profile',
-    title: 'Profile',
-    icon: <User />,
-    roles: ['admin', 'mother', 'ob_gyne'],
-    isSidebarVisible: true,
-    child_routes: [
-      {
-        route: '/verification',
-        title: 'Verification',
-        icon: <BadgeCheck />,
-        roles: ['ob_gyne'],
-        isSidebarVisible: true,
-        child_routes: [],
-      },
-      {
-        route: '/display-information',
-        title: 'Display Information',
-        icon: <UserSquare />,
-        roles: ['ob_gyne'],
-        isSidebarVisible: true,
-        child_routes: [],
-      },
-    ],
-  },
+  // {
+  //   route: '/profile',
+  //   title: 'Profile',
+  //   icon: <User />,
+  //   roles: ['admin'],
+  //   isSidebarVisible: true,
+  //   child_routes: [],
+  // },
 ];
 
 export default routes;
